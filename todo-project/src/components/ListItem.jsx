@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { TaskContext } from "../contexts/TaskContext";
+import { useTasksActions } from "../hooks/useTasksActions";
 
 export const ListItem = ({ task }) => {
-  const { removeTask, toggleCompleteTask } = useContext(TaskContext);
+  const { removeTask, toggleCompleteTask } = useTasksActions();
 
   return (
     <li

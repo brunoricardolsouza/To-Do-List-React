@@ -1,12 +1,12 @@
-import { useContext } from "react";
 import { ListItem } from "./ListItem";
-import { TaskContext } from "../contexts/TaskContext";
 import { ListTasksInfo } from "./ListTasksInfo";
 import { ListButtons } from "./ListButtons";
+import { useTasks } from "../hooks/useTasks";
+import { useTasksInput } from "../hooks/useTasksInput";
 
 export const ListTasks = () => {
-  const { taskText, setTaskText, listTasks, addTask } = useContext(TaskContext);
-
+  const { listTasks } = useTasks();
+  const { taskText, handleChange, handleKeyDown, addTask } = useTasksInput();
   return (
     <div className="container">
       <h1>To Do List | BN</h1>
@@ -15,11 +15,9 @@ export const ListTasks = () => {
           id="input-new-task"
           type="text"
           placeholder="Enter your task..."
-          onChange={(e) => setTaskText(e.target.value)}
+          onChange={handleChange}
           value={taskText}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") addTask();
-          }}
+          onKeyDown={handleKeyDown}
         />
         <button
           id="btn-new-task"
@@ -30,8 +28,8 @@ export const ListTasks = () => {
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
-            fill="currentColor"
-            class="bi bi-plus-lg"
+            fillRule="currentColor"
+            className="bi bi-plus-lg"
             viewBox="0 0 16 16"
           >
             <path

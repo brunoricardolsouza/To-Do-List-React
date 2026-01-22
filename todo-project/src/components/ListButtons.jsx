@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import { TaskContext } from "../contexts/TaskContext";
+import { useTasksActions } from "../hooks/useTasksActions";
 
 export const ListButtons = () => {
-  const { removeAllCompletedTasks, removeAllTasks } = useContext(TaskContext);
+  const { removeAllCompletedTasks, removeAllTasks } = useTasksActions();
   return (
     <div id="list-buttons-tasks">
       <button

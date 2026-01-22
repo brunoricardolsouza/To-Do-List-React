@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { TaskContext } from "../contexts/TaskContext";
+import { useTasks } from "../hooks/useTasks";
+import { useTasksStats } from "../hooks/useTasksStats";
 
 export const ListTasksInfo = () => {
-  const { allTasksCompleted, completedCount, listTasks } =
-    useContext(TaskContext);
+  const { listTasks } = useTasks();
+  const { completedCount, allTasksCompleted } = useTasksStats();
   return (
     <>
       <div id="list-info-tasks">
