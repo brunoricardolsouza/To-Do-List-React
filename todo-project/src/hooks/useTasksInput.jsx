@@ -1,7 +1,7 @@
 import { useTasks } from "./useTasks";
 import { useTasksActions } from "./useTasksActions";
 
-export const useTasksInput = () => {
+export const useTasksInput = (inputRef) => {
   const { taskText, setTaskText } = useTasks();
   const { addTask } = useTasksActions();
 
@@ -14,10 +14,16 @@ export const useTasksInput = () => {
       addTask();
     }
   };
+
+  const handleAdd = () => {
+    addTask();
+    inputRef.current.focus();
+  };
+
   return {
     taskText,
     handleChange,
     handleKeyDown,
-    addTask,
+    handleAdd,
   };
 };

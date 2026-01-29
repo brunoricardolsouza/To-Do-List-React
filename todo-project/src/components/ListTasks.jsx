@@ -3,15 +3,20 @@ import { ListTasksInfo } from "./ListTasksInfo";
 import { ListButtons } from "./ListButtons";
 import { useTasks } from "../hooks/useTasks";
 import { useTasksInput } from "../hooks/useTasksInput";
+import { useRef } from "react";
 
 export const ListTasks = () => {
+  const inputRef = useRef(null);
   const { listTasks } = useTasks();
-  const { taskText, handleChange, handleKeyDown, addTask } = useTasksInput();
+  const { taskText, handleChange, handleKeyDown, handleAdd } =
+    useTasksInput(inputRef);
+
   return (
     <div className="container">
       <h1>To Do List | BN</h1>
       <div className="input-group">
         <input
+          ref={inputRef}
           id="input-new-task"
           type="text"
           placeholder="Enter your task..."
@@ -22,7 +27,7 @@ export const ListTasks = () => {
         <button
           id="btn-new-task"
           title="Clique aqui para adicionar uma nova task!"
-          onClick={addTask}
+          onClick={handleAdd}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
