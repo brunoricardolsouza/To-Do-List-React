@@ -20,6 +20,7 @@ export const ListTasks = () => {
           id="input-new-task"
           type="text"
           placeholder="Enter your task..."
+          aria-label="Digite uma nova tarefa"
           onChange={handleChange}
           value={taskText}
           onKeyDown={handleKeyDown}
@@ -27,6 +28,7 @@ export const ListTasks = () => {
         <button
           id="btn-new-task"
           title="Clique aqui para adicionar uma nova task!"
+          aria-label="Adicionar nova tarefa"
           onClick={handleAdd}
         >
           <svg

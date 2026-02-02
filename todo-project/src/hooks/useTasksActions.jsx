@@ -8,7 +8,7 @@ export const useTasksActions = () => {
     if (taskText.trim() === "") return;
 
     const newTask = {
-      id: Date.now(),
+      id: crypto.randomUUID(),
       text: taskText,
       completed: false,
     };
@@ -38,7 +38,6 @@ export const useTasksActions = () => {
   };
 
   return {
-    listTasks,
     addTask,
     removeTask,
     toggleCompleteTask,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { TaskContext } from "./TaskContext";
 
 export const TaskProvider = ({ children }) => {
@@ -6,16 +6,15 @@ export const TaskProvider = ({ children }) => {
   const [taskText, setTaskText] = useState("");
   const [listTasks, setListTasks] = useState([]);
 
-  return (
-    <TaskContext.Provider
-      value={{
-        taskText,
-        setTaskText,
-        listTasks,
-        setListTasks,
-      }}
-    >
-      {children}
-    </TaskContext.Provider>
+  const value = useMemo(
+    () => ({
+      taskText,
+      setTaskText,
+      listTasks,
+      setListTasks,
+    }),
+    [taskText, listTasks],
   );
+
+  return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;
 };
