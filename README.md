@@ -10,7 +10,7 @@ O projeto foi criado como parte do meu portfólio para vagas de estágio em Fron
 
 A aplicação está disponível online via Vercel:
 
-👉 https://to-do-list-react-six.vercel.app/
+👉 https://to-do-list-react-bruno-ricardo.vercel.app/
 
 ---
 
