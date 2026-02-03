@@ -45,23 +45,23 @@ A aplicação está disponível online via Vercel:
 ## 🧠 Arquitetura e Organização
 
 O projeto utiliza uma separação clara de responsabilidades:
-
+```
 src/
 ├── components/
 │ ├── ListTasks.jsx
 │ ├── ListItem.jsx
 │ ├── ListButtons.jsx
-│ └── ListTasksInfo.jsx
+│ |── ListTasksInfo.jsx
 │
 ├── contexts/
 │ ├── TaskContext.jsx
-│ └── TaskProvider.jsx
+│ |── TaskProvider.jsx
 │
 ├── hooks/
 │ ├── useTasks.jsx
 │ ├── useTasksActions.jsx
 │ ├── useTasksInput.jsx
-│ └── useTasksStats.jsx
+│ |── useTasksStats.jsx
 
 ---
 
@@ -75,5 +75,5 @@ src/
 - Cálculos derivados otimizados com `useMemo`
 - Separação clara entre UI e lógica
 - Foco em experiência do usuário e acessibilidade básica
-
+```
 ---
