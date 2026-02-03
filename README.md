@@ -64,7 +64,7 @@ src/
 │ |── useTasksStats.jsx
 
 ---
-
+```
 ## 📌 Decisões Técnicas
 
 - Uso de **Context API** para estado global
